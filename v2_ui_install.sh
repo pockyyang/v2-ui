@@ -189,7 +189,7 @@ install_v2-ui() {
     if [[ -e /usr/local/v2-ui/ ]]; then
         rm /usr/local/v2-ui/ -rf
     fi
-    wget -o https://github.com/pockyyang/v2-ui/releases/download/v5.4.5/v2-ui-linux.tar.gz
+    wget -N --no-check-certificate -O /usr/local/v2-ui-linux.tar.gz https://github.com/pockyyang/v2-ui/releases/download/v5.4.5/v2-ui-linux.tar.gz
     tar zxvf v2-ui-linux.tar.gz
     rm v2-ui-linux.tar.gz -f
     cd v2-ui
