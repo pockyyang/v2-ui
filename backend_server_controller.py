@@ -10,7 +10,8 @@ headers = {
         'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
     }
 # Url
-base_url = "http://inbs.tizihu.space:65432"
+serverName="larvel.tizihu.space"
+base_url = "http://"+serverName+":65432"
 username = 'admin'
 password = 'admin'
 
@@ -108,17 +109,15 @@ def addUser_tls(port,id,alterID,serverName,certificateFile,keyFile,remark):
 
 
 
-
+certificateFile = "/etc/ssl/ray.akbibi.top_chain.crt"
+keyFile = "/etc/ssl/ray.akbibi.top_key.key"
 if __name__ == '__main__':
     id=str(uuid.uuid1())
     alterID = 2
-    serverName = "inbs.tizihu.space"
-    certificateFile = "/etc/ssl/ray.akbibi.top_chain.crt"
-    keyFile = "/etc/ssl/ray.akbibi.top_key.key"
     port=3457
     remark = ''.join(random.sample(string.ascii_letters + string.digits, 16))
     portExist=userExistCheck("", port)
-    portUsed=is_port_used('inbs.tizihu.space',port)
+    portUsed=is_port_used(serverName,port)
     remarkExist=userExistCheck(remark,0)
     if not portExist:
         if not portUsed:
